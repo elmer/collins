@@ -115,8 +115,7 @@ module CollinsShell
     def asset_get tag, options
       call_collins get_collins_client, "get asset" do |client|
         as_asset = Collins::Asset.new(tag)
-        as_asset.location = options.remote
-        asset = client.get as_asset
+        asset = client.get as_asset, {:location => options.remote}
       end
     end
 
